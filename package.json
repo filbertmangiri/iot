@@ -1,0 +1,34 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build"
+    },
+    "devDependencies": {
+        "@headlessui/react": "^1.4.2",
+        "@inertiajs/react": "^1.0.0",
+        "@tailwindcss/forms": "^0.5.3",
+        "@types/lodash": "^4.14.192",
+        "@types/node": "^18.13.0",
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.10",
+        "@types/ziggy-js": "^1.3.2",
+        "@vitejs/plugin-react": "^3.0.0",
+        "autoprefixer": "^10.4.12",
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.2",
+        "postcss": "^8.4.18",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "tailwindcss": "^3.2.1",
+        "typescript": "^5.0.2",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@heroicons/react": "^2.0.17",
+        "lodash": "^4.17.21",
+        "mapbox-gl": "^2.13.0",
+        "react-map-gl": "^7.0.21",
+        "tailwind-merge": "^1.11.0"
+    }
+}
