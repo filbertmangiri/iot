@@ -21,25 +21,25 @@ function Dashboard(props: Props) {
         {
             id: 1,
             name: "Temperature",
-            stat: log.temperature,
+            stat: log?.temperature,
             icon: ExclamationTriangleIcon,
         },
         {
             id: 2,
             name: "Run Time",
-            stat: log.runtime,
+            stat: log?.runtime,
             icon: PlayIcon,
         },
         {
             id: 3,
             name: "Stop Time",
-            stat: log.stoptime,
+            stat: log?.stoptime,
             icon: PauseIcon,
         },
         {
             id: 4,
             name: "Device Condition",
-            stat: log.status,
+            stat: log?.status,
             icon: HeartIcon,
         },
     ];
