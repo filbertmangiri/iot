@@ -1,4 +1,5 @@
 import AppLayout from "@/Layouts/AppLayout";
+import { MapPinIcon } from "@heroicons/react/20/solid";
 import {
     ExclamationTriangleIcon,
     HeartIcon,
@@ -6,8 +7,8 @@ import {
     PlayIcon,
 } from "@heroicons/react/24/outline";
 import { Head } from "@inertiajs/react";
-import { ReactNode, useEffect, useRef, useState } from "react";
-import { Map } from "react-map-gl";
+import { ReactNode } from "react";
+import { Map, Marker } from "react-map-gl";
 
 type Props = {
     log: any;
@@ -43,29 +44,21 @@ function Dashboard(props: Props) {
         },
     ];
 
-    const [viewport, setViewport] = useState({
-        latitude: log.latitude,
-        longitude: log.longitude,
-        width: "100%",
-        height: "100%",
-        zoom: 10,
-    });
-
     return (
         <>
             <Head title="Dashboard" />
 
-            <div className="flex flex-col lg:flex-row gap-x-8 gap-y-16 h-fit lg:h-full">
-                <div className="h-full flex flex-col">
+            <div className="flex h-fit flex-col gap-x-8 gap-y-16 lg:h-full lg:flex-row">
+                <div className="flex h-full flex-col">
                     <h3 className="text-lg font-medium leading-6 text-gray-900">
                         Device Monitoring
                     </h3>
 
-                    <dl className="mt-5 grid grid-cols-1 gap-5 lg:gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1 flex-grow">
+                    <dl className="mt-5 grid flex-grow grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1 lg:gap-3">
                         {stats.map((item) => (
                             <div
                                 key={item.id}
-                                className="relative overflow-hidden rounded-lg border bg-white px-4 py-5 shadow sm:px-6 sm:py-6"
+                                className="relative overflow-hidden rounded-lg border bg-white px-4 py-5 shadow-md sm:px-6 sm:py-6"
                             >
                                 <dt>
                                     <div className="absolute rounded-md bg-indigo-500 p-3">
@@ -88,12 +81,12 @@ function Dashboard(props: Props) {
                     </dl>
                 </div>
 
-                <div className="lg:flex-grow flex flex-col">
+                <div className="flex flex-col lg:flex-grow">
                     <h3 className="text-lg font-medium leading-6 text-gray-900">
                         Device Location
                     </h3>
 
-                    <div className="w-full aspect-square lg:flex-grow mt-5">
+                    <div className="mt-5 aspect-square w-full overflow-hidden rounded-lg border bg-white shadow-md lg:flex-grow">
                         <Map
                             initialViewState={{
                                 longitude: log.longitude,
@@ -105,7 +98,15 @@ function Dashboard(props: Props) {
                             mapboxAccessToken={
                                 import.meta.env.VITE_MAPBOX_TOKEN
                             }
-                        />
+                        >
+                            <Marker
+                                longitude={log.longitude}
+                                latitude={log.latitude}
+                                anchor="bottom"
+                            >
+                                <MapPinIcon className="h-7 w-7 text-red-500" />
+                            </Marker>
+                        </Map>
                     </div>
                 </div>
             </div>

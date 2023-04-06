@@ -21,7 +21,7 @@ function Pagination(props: Props) {
                             );
                         }}
                         className={twMerge(
-                            "flex rounded px-3 py-2 text-xs font-medium text-black whitespace-nowrap items-center",
+                            "flex items-center whitespace-nowrap rounded px-3 py-2 text-xs font-medium text-black",
                             link.active
                                 ? "bg-indigo-600 text-white"
                                 : link.url

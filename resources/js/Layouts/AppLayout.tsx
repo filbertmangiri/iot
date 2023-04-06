@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import {
+    AdjustmentsVerticalIcon,
     Bars3CenterLeftIcon,
     HomeIcon,
     NewspaperIcon,
@@ -28,6 +29,12 @@ function AppLayout(props: Props) {
             href: route("log.index"),
             icon: NewspaperIcon,
             current: route().current("log.*"),
+        },
+        {
+            name: "Actions",
+            href: route("action.index"),
+            icon: AdjustmentsVerticalIcon,
+            current: route().current("action.*"),
         },
     ];
 
@@ -61,7 +68,7 @@ function AppLayout(props: Props) {
                             leaveFrom="translate-x-0"
                             leaveTo="-translate-x-full"
                         >
-                            <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4">
+                            <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-white pb-4 pt-5">
                                 <Transition.Child
                                     as={Fragment}
                                     enter="ease-in-out duration-300"
@@ -71,7 +78,7 @@ function AppLayout(props: Props) {
                                     leaveFrom="opacity-100"
                                     leaveTo="opacity-0"
                                 >
-                                    <div className="absolute top-0 right-0 -mr-12 pt-2">
+                                    <div className="absolute right-0 top-0 -mr-12 pt-2">
                                         <button
                                             type="button"
                                             className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -89,14 +96,14 @@ function AppLayout(props: Props) {
                                         </button>
                                     </div>
                                 </Transition.Child>
-                                <div className="flex flex-shrink-0 justify-center items-center px-4">
+                                <div className="flex flex-shrink-0 items-center justify-center px-4">
                                     <img
                                         className="h-8 w-auto"
                                         src="/img/intecs.png"
                                         alt="Your Company"
                                     />
                                 </div>
-                                <div className="mt-5 h-0 flex-1 overflow-y-auto custom-scrollbar">
+                                <div className="custom-scrollbar mt-5 h-0 flex-1 overflow-y-auto">
                                     <nav className="px-2">
                                         <div className="space-y-1">
                                             {navigations.map((item) => (
@@ -109,8 +116,8 @@ function AppLayout(props: Props) {
                                                     className={twMerge(
                                                         item.current
                                                             ? "bg-gray-100 text-gray-900"
-                                                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50",
-                                                        "group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md"
+                                                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                                                        "group flex items-center rounded-md px-2 py-2 text-base font-medium leading-5"
                                                     )}
                                                     aria-current={
                                                         item.current
@@ -123,7 +130,7 @@ function AppLayout(props: Props) {
                                                             item.current
                                                                 ? "text-gray-500"
                                                                 : "text-gray-400 group-hover:text-gray-500",
-                                                            "mr-3 flex-shrink-0 h-6 w-6"
+                                                            "mr-3 h-6 w-6 flex-shrink-0"
                                                         )}
                                                         aria-hidden="true"
                                                     />
@@ -153,7 +160,7 @@ function AppLayout(props: Props) {
                     />
                 </div>
 
-                <div className="mt-2 flex h-0 flex-1 flex-col overflow-y-auto custom-scrollbar pt-1">
+                <div className="custom-scrollbar mt-2 flex h-0 flex-1 flex-col overflow-y-auto pt-1">
                     {/* Navigation */}
                     <nav className="mt-6 px-3">
                         <div className="space-y-1">
@@ -164,8 +171,8 @@ function AppLayout(props: Props) {
                                     className={twMerge(
                                         item.current
                                             ? "bg-gray-200 text-gray-900"
-                                            : "text-gray-700 hover:text-gray-900 hover:bg-gray-50",
-                                        "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                                            : "text-gray-700 hover:bg-gray-50 hover:text-gray-900",
+                                        "group flex items-center rounded-md px-2 py-2 text-sm font-medium"
                                     )}
                                     aria-current={
                                         item.current ? "page" : undefined
@@ -176,7 +183,7 @@ function AppLayout(props: Props) {
                                             item.current
                                                 ? "text-gray-500"
                                                 : "text-gray-400 group-hover:text-gray-500",
-                                            "mr-3 flex-shrink-0 h-6 w-6"
+                                            "mr-3 h-6 w-6 flex-shrink-0"
                                         )}
                                         aria-hidden="true"
                                     />
@@ -189,7 +196,7 @@ function AppLayout(props: Props) {
             </div>
 
             {/* Main column */}
-            <div className="flex flex-col lg:pl-64 h-full">
+            <div className="flex h-full flex-col lg:pl-64">
                 <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 border-b border-gray-200 bg-white lg:hidden">
                     <button
                         type="button"
@@ -210,7 +217,7 @@ function AppLayout(props: Props) {
                         </div>
                     )}
                 </div>
-                <main className="flex-1 flex flex-col overflow-hidden">
+                <main className="flex flex-1 flex-col overflow-hidden">
                     {/* Page title & actions */}
                     {props.header && (
                         <div className="hidden border-b border-gray-300 px-4 py-4 lg:flex lg:items-center lg:justify-between lg:px-8">
@@ -222,7 +229,7 @@ function AppLayout(props: Props) {
                         </div>
                     )}
 
-                    <div className="py-8 px-4 sm:px-6 lg:px-8 flex-1 overflow-y-auto custom-scrollbar bg-gray-50">
+                    <div className="custom-scrollbar flex-1 overflow-y-auto bg-gray-100 px-4 py-8 sm:px-6 lg:px-8">
                         {props.children}
                     </div>
                 </main>

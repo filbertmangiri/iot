@@ -81,9 +81,9 @@ function Index(props: Props) {
         <>
             <Head title="Logs" />
 
-            <div className="flex h-full w-full flex-col gap-y-3 rounded-lg bg-white shadow-md px-4 py-2 dark:border-gray-700 dark:bg-gray-900">
+            <div className="flex h-full w-full flex-col gap-y-3 rounded-lg bg-white py-3 shadow-md dark:border-gray-700 dark:bg-gray-900">
                 {/* Header */}
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between px-3">
                     <PerPage
                         current={params.per_page}
                         onChange={(per_page) =>
@@ -99,10 +99,10 @@ function Index(props: Props) {
                 </div>
 
                 {/* Table */}
-                <div className="flex-grow overflow-y-auto -mx-4">
+                <div className="flex-grow overflow-y-auto">
                     <div className="custom-scrollbar h-full overflow-x-auto">
                         <table className="w-full text-sm">
-                            <thead className="sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-400">
+                            <thead className="sticky top-0 border-b border-gray-400 bg-white dark:bg-gray-900">
                                 <tr>
                                     {columns.map((column, key) => (
                                         <th
@@ -171,7 +171,7 @@ function Index(props: Props) {
                                     logs.map((log: any, key: number) => (
                                         <tr
                                             key={`log-${key}`}
-                                            className="odd:bg-gray-100 dark:odd:bg-gray-700 hover:bg-gray-100 odd:hover:bg-gray-200"
+                                            className="odd:bg-gray-100 hover:bg-gray-100 odd:hover:bg-gray-200 dark:odd:bg-gray-700"
                                         >
                                             <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                                                 <Link
@@ -220,7 +220,7 @@ function Index(props: Props) {
                                             <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                                                 {log.time}
                                             </td>
-                                            <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                                                 {log.date}
                                             </td>
                                             <td className="whitespace-nowrap px-4 py-2 font-medium">
@@ -252,7 +252,7 @@ function Index(props: Props) {
                 </div>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between px-3">
                     <span className="text-sm">
                         Showing {meta.from} to {meta.to} of {meta.total} entries
                     </span>

@@ -89,7 +89,7 @@ function Label({
         <label
             htmlFor={htmlFor}
             className={twMerge(
-                "absolute left-0 -top-0.5 mx-2 block w-fit -translate-y-1/2 text-black peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-500 cursor-text px-1 text-xs font-medium transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:-top-0.5 peer-focus:text-xs peer-focus:text-black",
+                "absolute -top-0.5 left-0 mx-2 block w-fit -translate-y-1/2 cursor-text px-1 text-xs font-medium text-black transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 peer-focus:-top-0.5 peer-focus:text-xs peer-focus:text-black dark:peer-placeholder-shown:text-gray-500",
                 className,
                 backgroundClassName
             )}

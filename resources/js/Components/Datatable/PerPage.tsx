@@ -29,14 +29,14 @@ function PerPage(props: Props) {
 
     return (
         <Dropdown>
-            <Dropdown.Button className="rounded-md border border-gray-400 py-2 px-1.5 transition hover:bg-gray-100 flex items-center gap-x-2">
+            <Dropdown.Button className="flex items-center gap-x-2 rounded-md border border-gray-400 px-1.5 py-2 transition hover:bg-gray-100">
                 <span className="text-sm">
                     {props.current || props.meta.default_per_page}
                 </span>
                 <ChevronDownIcon className="h-4 w-4" />
             </Dropdown.Button>
 
-            <Dropdown.Items className="z-10 left-0 text-xs">
+            <Dropdown.Items className="left-0 z-10 text-xs">
                 {perPages.map((perPage) => (
                     <Dropdown.Item
                         key={`per-page-${perPage}`}
