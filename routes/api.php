@@ -25,6 +25,10 @@ Route::get('/test-get', function () {
     return response('hello from test-post', 200);
 });
 
-Route::post('/test-post', function () {
+Route::post('/test-post', function (Request $request) {
+    $request->validate([
+        'serial_number' => ['required'],
+    ]);
+
     return response('hello from test-post', 200);
 });
