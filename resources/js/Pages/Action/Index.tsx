@@ -21,8 +21,8 @@ function Index() {
                 className={twMerge(
                     "w-fit rounded-lg p-4 text-white shadow-md transition-all focus:ring-2",
                     running
-                        ? "bg-red-500 hover:bg-red-600"
-                        : "bg-green-500 hover:bg-green-600"
+                        ? "bg-red-500 hover:bg-red-600 focus:ring-red-700"
+                        : "bg-green-500 hover:bg-green-600 focus:ring-green-700"
                 )}
             >
                 {running ? (

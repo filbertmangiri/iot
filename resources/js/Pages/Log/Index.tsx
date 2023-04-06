@@ -15,20 +15,20 @@ type Props = {
 };
 
 const columns = [
-    { name: "ID", sort: "id" },
-    { name: "Device", sort: "device" },
-    { name: "Serial Number", sort: "serial_number" },
-    { name: "Password", sort: "password" },
-    { name: "Latitude", sort: "latitude" },
-    { name: "Longitude", sort: "longitude" },
-    { name: "Temperature", sort: "temperature" },
-    { name: "Runtime", sort: "runtime" },
-    { name: "Stoptime", sort: "stoptime" },
-    { name: "Status", sort: "status" },
-    { name: "LED 01", sort: "led_01" },
-    { name: "LED 02", sort: "led_02" },
-    { name: "Time", sort: "time" },
-    { name: "Date", sort: "date" },
+    { name: "ID", field: "id" },
+    { name: "Device", field: "device" },
+    { name: "Serial Number", field: "serial_number" },
+    { name: "Password", field: "password" },
+    { name: "Latitude", field: "latitude" },
+    { name: "Longitude", field: "longitude" },
+    { name: "Temperature", field: "temperature" },
+    { name: "Runtime", field: "runtime" },
+    { name: "Stoptime", field: "stoptime" },
+    { name: "Status", field: "status" },
+    { name: "LED 01", field: "led_01" },
+    { name: "LED 02", field: "led_02" },
+    { name: "Date", field: "date" },
+    { name: "Time", field: "time" },
 ];
 
 function Index(props: Props) {
@@ -36,7 +36,9 @@ function Index(props: Props) {
 
     const [params, setParams] = useState(queries);
 
-    const [sortColumn, sortDirection] = params.sort.split("-");
+    const [sortColumn, sortDirection] = (
+        params.sort || meta.default_sort
+    ).split("-");
 
     /* Prevent page overload */
     const oldQueries = useRef({
@@ -111,12 +113,12 @@ function Index(props: Props) {
                                         >
                                             <button
                                                 onClick={
-                                                    column?.sort
+                                                    column?.field
                                                         ? () => {
                                                               setParams({
                                                                   ...params,
                                                                   sort: `${
-                                                                      column.sort
+                                                                      column.field
                                                                   }-${
                                                                       sortDirection ===
                                                                       "asc"
@@ -129,18 +131,18 @@ function Index(props: Props) {
                                                 }
                                                 className={twMerge(
                                                     "group inline-flex",
-                                                    column?.sort
+                                                    column?.field
                                                         ? "cursor-pointer"
                                                         : "cursor-default"
                                                 )}
                                             >
                                                 {column.name}
-                                                {column?.sort && (
+                                                {column?.field && (
                                                     <span
                                                         className={twMerge(
                                                             "ml-2 flex-none rounded text-gray-400",
                                                             sortColumn !==
-                                                                column.sort &&
+                                                                column.field &&
                                                                 "invisible group-hover:visible"
                                                         )}
                                                     >
@@ -184,45 +186,16 @@ function Index(props: Props) {
                                                     {log.id}
                                                 </Link>
                                             </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.device}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.serial_number}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.password}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.latitude}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.longitude}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.temperature}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.runtime}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.stoptime}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.status}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.led_01}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.led_02}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.time}
-                                            </td>
-                                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                                {log.date}
-                                            </td>
+                                            {columns
+                                                .slice(1)
+                                                .map((column, index) => (
+                                                    <td
+                                                        key={index}
+                                                        className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
+                                                    >
+                                                        {log[column.field]}
+                                                    </td>
+                                                ))}
                                             <td className="whitespace-nowrap px-4 py-2 font-medium">
                                                 <Link
                                                     href={route(
