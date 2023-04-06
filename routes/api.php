@@ -20,3 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/send-data', [InteractionController::class, 'sendData']);
+
+Route::get('/test-get', function () {
+    return response()->json();
+});
+
+Route::post('/test-post', function () {
+    return response()->isSuccessful();
+});
