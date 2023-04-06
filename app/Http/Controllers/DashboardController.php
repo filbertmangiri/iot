@@ -13,7 +13,9 @@ class DashboardController extends Controller
     {
         $log = Log::orderBy('id', 'desc')->first();
 
-        $log = fn () => $log ? LogResource::make($log) : null;
+        $log = fn () => $log ? LogResource::make($log) : [
+            'data' => null,
+        ];
 
         return Inertia::render('Dashboard', compact('log'));
     }
