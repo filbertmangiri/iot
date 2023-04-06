@@ -26,5 +26,7 @@ class InteractionController extends Controller
         ]);
 
         Log::create($attributes);
+
+        return response('ok', 200);
     }
 }
