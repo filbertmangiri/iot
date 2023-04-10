@@ -9,7 +9,7 @@ class InteractionController extends Controller
 {
     public function sendData(Request $request)
     {
-        /* $attributes = $request->validate([
+        $attributes = $request->validate([
             'device' => ['required'],
             'serial_number' => ['required'],
             'password' => ['required'],
@@ -23,7 +23,7 @@ class InteractionController extends Controller
             'led_02' => ['required'],
             'time' => ['required'],
             'date' => ['required'],
-        ]); */
+        ]);
 
         // Log::create($attributes);
 
