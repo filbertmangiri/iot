@@ -25,9 +25,9 @@ class InteractionController extends Controller
             'date' => ['required'],
         ]);
 
-        $attributes['latitude'] = (float) $attributes['latitude'];
-        $attributes['longitude'] = (float) $attributes['longitude'];
-        $attributes['temperature'] = (float) $attributes['temperature'];
+        // $attributes['latitude'] = (float) $attributes['latitude'];
+        // $attributes['longitude'] = (float) $attributes['longitude'];
+        // $attributes['temperature'] = (float) $attributes['temperature'];
 
         Log::create($attributes);
 
