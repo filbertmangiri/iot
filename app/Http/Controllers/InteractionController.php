@@ -25,7 +25,7 @@ class InteractionController extends Controller
             'date' => ['required'],
         ]);
 
-        // Log::create($attributes);
+        Log::create($attributes);
 
         return response('ok', 200);
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
 
-            $table->string('device');
+            /* $table->string('device');
             $table->string('serial_number');
             $table->string('password');
             $table->double('latitude');
@@ -26,7 +26,22 @@ return new class extends Migration
             $table->enum('led_01', ['on', 'off']);
             $table->enum('led_02', ['on', 'off']);
             $table->time('time');
-            $table->date('date');
+            $table->date('date'); */
+
+            /* TEST */
+            $table->string('device');
+            $table->string('serial_number');
+            $table->string('password');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->string('temperature');
+            $table->string('runtime');
+            $table->string('stoptime');
+            $table->enum('status', ['good', 'bad']);
+            $table->enum('led_01', ['on', 'off']);
+            $table->enum('led_02', ['on', 'off']);
+            $table->string('time');
+            $table->string('date');
         });
     }
 
