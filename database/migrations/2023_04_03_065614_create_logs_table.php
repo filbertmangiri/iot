@@ -29,19 +29,19 @@ return new class extends Migration
             $table->date('date'); */
 
             /* TEST ALL STRING */
-            $table->string('device');
-            $table->string('serial_number');
-            $table->string('password');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->string('temperature');
-            $table->string('runtime');
-            $table->string('stoptime');
-            $table->string('status');
-            $table->string('led_01');
-            $table->string('led_02');
-            $table->string('time');
-            $table->string('date');
+            $table->string('device')->default('default-value');
+            $table->string('serial_number')->default('default-value');
+            $table->string('password')->default('default-value');
+            $table->string('latitude')->default('default-value');
+            $table->string('longitude')->default('default-value');
+            $table->string('temperature')->default('default-value');
+            $table->string('runtime')->default('default-value');
+            $table->string('stoptime')->default('default-value');
+            $table->string('status')->default('default-value');
+            $table->string('led_01')->default('default-value');
+            $table->string('led_02')->default('default-value');
+            $table->string('time')->default('default-value');
+            $table->string('date')->default('default-value');
         });
     }
 
