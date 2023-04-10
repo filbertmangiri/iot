@@ -37,9 +37,9 @@ return new class extends Migration
             $table->string('temperature');
             $table->string('runtime');
             $table->string('stoptime');
-            $table->string('status', ['good', 'bad']);
-            $table->string('led_01', ['on', 'off']);
-            $table->string('led_02', ['on', 'off']);
+            $table->string('status');
+            $table->string('led_01');
+            $table->string('led_02');
             $table->string('time');
             $table->string('date');
         });
