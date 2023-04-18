@@ -32,7 +32,7 @@ class InteractionController extends Controller
         $attributes['longitude'] = (float) $attributes['longitude'];
         $attributes['temperature'] = (float) $attributes['temperature'];
 
-        $attributes['datetime'] = $attributes['date'] . ' ' . $attributes['time'];
+        $attributes['sent_at'] = $attributes['date'] . ' ' . $attributes['time'];
 
         unset($attributes['date']);
         unset($attributes['time']);
