@@ -27,8 +27,7 @@ const columns = [
     { name: "Status", field: "status" },
     { name: "LED 01", field: "led_01" },
     { name: "LED 02", field: "led_02" },
-    { name: "Date", field: "date" },
-    { name: "Time", field: "time" },
+    { name: "Sent At", field: "send_at" },
 ];
 
 function Index(props: Props) {
