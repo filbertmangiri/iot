@@ -25,8 +25,7 @@ return new class extends Migration
             $table->enum('status', ['good', 'bad']);
             $table->enum('led_01', ['on', 'off']);
             $table->enum('led_02', ['on', 'off']);
-            $table->time('time');
-            $table->date('date');
+            $table->dateTime('sent_at');
 
             /* TEST ALL STRING */
             /* $table->string('device')->nullable();

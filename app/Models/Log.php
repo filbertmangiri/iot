@@ -25,8 +25,7 @@ class Log extends Model
         'status',
         'led_01',
         'led_02',
-        'time',
-        'date',
+        'sent_at',
     ];
 
     protected $searchable = [
@@ -42,8 +41,7 @@ class Log extends Model
         'status',
         'led_01',
         'led_02',
-        'time',
-        'date',
+        'sent_at',
     ];
 
     protected $sortable = [
@@ -59,14 +57,14 @@ class Log extends Model
         'status',
         'led_01',
         'led_02',
-        'time',
-        'date',
+        'sent_at',
     ];
 
     protected $casts = [
         'status' => DeviceStatus::class,
         'led_01' => LEDStatus::class,
         'led_02' => LEDStatus::class,
+        'sent_at' => 'datetime',
     ];
 
     public static function getSearchable()

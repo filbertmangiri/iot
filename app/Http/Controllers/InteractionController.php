@@ -32,6 +32,11 @@ class InteractionController extends Controller
         $attributes['longitude'] = (float) $attributes['longitude'];
         $attributes['temperature'] = (float) $attributes['temperature'];
 
+        $attributes['datetime'] = $attributes['date'] . ' ' . $attributes['time'];
+
+        unset($attributes['date']);
+        unset($attributes['time']);
+
         Log::create($attributes);
 
         return response('ok', 200);
