@@ -22,7 +22,7 @@ class LogResource extends JsonResource
             'status' => $this->status ? $this->status->label() : null,
             'led_01' => $this->led_01 ? $this->led_01->label() : null,
             'led_02' => $this->led_02 ? $this->led_02->label() : null,
-            'sent_at' => $this->sent_at->format('l, Y-m-d H:i:s'),
+            'sent_at' => $this->sent_at->format('l, d F Y - H:i:s'),
         ];
     }
 }

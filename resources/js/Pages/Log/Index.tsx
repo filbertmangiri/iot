@@ -27,7 +27,7 @@ const columns = [
     { name: "Status", field: "status" },
     { name: "LED 01", field: "led_01" },
     { name: "LED 02", field: "led_02" },
-    { name: "Sent At", field: "send_at" },
+    { name: "Sent At", field: "sent_at" },
 ];
 
 function Index(props: Props) {
