@@ -11,6 +11,8 @@ class Log extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'device',
         'serial_number',
