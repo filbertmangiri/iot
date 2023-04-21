@@ -9,6 +9,7 @@ import { twMerge } from "tailwind-merge";
 import FloatingInput from "@/Components/Form/FloatingInput";
 import Pagination from "@/Components/Datatable/Pagination";
 import Search from "@/Components/Datatable/Search";
+import { ArrowDownTrayIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
 
 type Props = {
     logs: any;
@@ -84,19 +85,36 @@ function Index(props: Props) {
 
             <div className="flex h-full w-full flex-col gap-y-3 rounded-lg bg-white py-3 shadow-md dark:border-gray-700 dark:bg-gray-900">
                 {/* Header */}
-                <div className="flex items-center justify-between px-3">
-                    <PerPage
-                        current={params.per_page}
-                        onChange={(per_page) =>
-                            setParams({ ...params, per_page })
-                        }
-                        meta={meta}
-                    />
+                <div className="flex items-center justify-between gap-3 px-3 max-sm:flex-col max-sm:items-stretch">
+                    <div className="flex items-center justify-between gap-x-3">
+                        <PerPage
+                            current={params.per_page}
+                            onChange={(per_page) =>
+                                setParams({ ...params, per_page })
+                            }
+                            meta={meta}
+                        />
 
-                    <Search
-                        current={params.search}
-                        onChange={(search) => setParams({ ...params, search })}
-                    />
+                        <a
+                            href={route("log.export")}
+                            className="flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        >
+                            <ArrowDownTrayIcon
+                                className="-ml-1 mr-2 h-5 w-5"
+                                aria-hidden="true"
+                            />
+                            Export
+                        </a>
+                    </div>
+
+                    <div className="flex items-center justify-between gap-x-3">
+                        <Search
+                            current={params.search}
+                            onChange={(search) =>
+                                setParams({ ...params, search })
+                            }
+                        />
+                    </div>
                 </div>
 
                 {/* Table */}

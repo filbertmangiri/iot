@@ -14,6 +14,9 @@ Route::name('log.')->group(function () {
 
     Route::get('/log/{log}', [LogController::class, 'show'])
         ->name('show');
+
+    Route::get('/logs/export', [LogController::class, 'export'])
+        ->name('export');
 });
 
 Route::controller(ActionsController::class)->name('action.')->group(function () {

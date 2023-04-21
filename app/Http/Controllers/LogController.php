@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\LogsExport;
 use App\Http\Resources\LogResource;
 use App\Models\Log;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LogController extends Controller
 {
@@ -67,5 +69,10 @@ class LogController extends Controller
         $log = LogResource::make($log);
 
         return Inertia::render('Log/Show', compact('log'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new LogsExport, 'logs.xlsx');
     }
 }
