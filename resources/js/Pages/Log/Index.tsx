@@ -1,15 +1,14 @@
+import Pagination from "@/Components/Datatable/Pagination";
 import PerPage from "@/Components/Datatable/PerPage";
-import Dropdown from "@/Components/Dropdown";
+import Search from "@/Components/Datatable/Search";
 import AppLayout from "@/Layouts/AppLayout";
+import { ArrowDownTrayIcon } from "@heroicons/react/20/solid";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import { Head, Link, router } from "@inertiajs/react";
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { debounce, pickBy } from "lodash";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import FloatingInput from "@/Components/Form/FloatingInput";
-import Pagination from "@/Components/Datatable/Pagination";
-import Search from "@/Components/Datatable/Search";
-import { ArrowDownTrayIcon, EnvelopeIcon } from "@heroicons/react/20/solid";
+import Filter from "./Partials/Filter";
 
 type Props = {
     logs: any;
@@ -114,6 +113,8 @@ function Index(props: Props) {
                                 setParams({ ...params, search })
                             }
                         />
+
+                        <Filter />
                     </div>
                 </div>
 

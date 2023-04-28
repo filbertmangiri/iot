@@ -12,10 +12,10 @@ function PerPage(props: Props) {
     const [perPages, setPerPages] = useState<Array<number>>([]);
 
     useEffect(() => {
-        let numbers = [];
+        let numbers = [props.meta.default_per_page];
 
         for (
-            let i = props.meta.default_per_page;
+            let i = props.meta.default_per_page * 2;
             i <= props.meta.total;
             i += props.meta.default_per_page
         ) {
