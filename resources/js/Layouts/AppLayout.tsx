@@ -96,13 +96,13 @@ function AppLayout(props: Props) {
                                         </button>
                                     </div>
                                 </Transition.Child>
-                                <div className="flex flex-shrink-0 items-center justify-center px-4">
+                                {/* <div className="flex flex-shrink-0 items-center justify-center px-4">
                                     <img
                                         className="h-8 w-auto"
                                         src="/img/intecs.png"
                                         alt="Your Company"
                                     />
-                                </div>
+                                </div> */}
                                 <div className="custom-scrollbar mt-5 h-0 flex-1 overflow-y-auto">
                                     <nav className="px-2">
                                         <div className="space-y-1">
@@ -152,17 +152,19 @@ function AppLayout(props: Props) {
 
             {/* Static sidebar for desktop */}
             <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col lg:border-r lg:border-gray-200 lg:bg-white lg:py-3">
-                <div className="flex flex-shrink-0 items-center justify-center px-6">
+                {/* <div className="flex flex-shrink-0 items-center justify-center px-6">
                     <img
                         className="h-8 w-auto"
                         src="/img/intecs.png"
                         alt="Your Company"
                     />
-                </div>
+                </div> */}
 
-                <div className="custom-scrollbar mt-2 flex h-0 flex-1 flex-col overflow-y-auto pt-1">
+                <div className="custom-scrollbar flex h-0 flex-1 flex-col overflow-y-auto pt-1">
+                    {/* mt-2 */}
                     {/* Navigation */}
-                    <nav className="mt-6 px-3">
+                    <nav className="mt-5 px-3">
+                        {/* mt-6 */}
                         <div className="space-y-1">
                             {navigations.map((item) => (
                                 <Link
