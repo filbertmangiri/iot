@@ -19,7 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/send-data', [InteractionController::class, 'sendData']);
+Route::post('/send-data-json', [InteractionController::class, 'sendDataJson']);
+Route::post('/send-data-string', [InteractionController::class, 'sendDataString']);
 
 Route::get('/test-get', function () {
     return response('hello from test-post', 200);
