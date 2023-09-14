@@ -15,7 +15,7 @@ class InteractionController extends Controller
 {
     public function sendDataJson(Request $request)
     {
-        $attributes = $request->validate([
+        $validator = Validator::make($request, [
             'device' => ['required'],
             'serial_number' => ['required'],
             'password' => ['required'],
@@ -31,9 +31,22 @@ class InteractionController extends Controller
             'date' => ['required'],
         ]);
 
-        $attributes['latitude'] = (float) $attributes['latitude'];
-        $attributes['longitude'] = (float) $attributes['longitude'];
-        $attributes['temperature'] = (float) $attributes['temperature'];
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        $attributes = $validator->attributes();
+
+        if (is_numeric($attributes['latitude']))
+            $attributes['latitude'] = (float) $attributes['latitude'];
+
+        if (is_numeric($attributes['longitude']))
+            $attributes['longitude'] = (float) $attributes['longitude'];
+
+        if (is_numeric($attributes['temperature']))
+            $attributes['temperature'] = (float) $attributes['temperature'];
 
         $attributes['sent_at'] = $attributes['date'] . ' ' . $attributes['time'];
 
@@ -113,6 +126,6 @@ class InteractionController extends Controller
 
         Log::create($attributes);
 
-        return response()->setStatusCode(200);
+        return response('ok', 200);
     }
 }
