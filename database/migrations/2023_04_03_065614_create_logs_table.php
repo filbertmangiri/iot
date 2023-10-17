@@ -20,8 +20,8 @@ return new class extends Migration
             $table->double('latitude');
             $table->double('longitude');
             $table->double('temperature');
-            $table->time('runtime');
-            $table->time('stoptime');
+            $table->time('runtime')->nullable();
+            $table->time('stoptime')->nullable();
             $table->enum('status', ['good', 'bad']);
             $table->enum('led_01', ['on', 'off']);
             $table->enum('led_02', ['on', 'off']);
